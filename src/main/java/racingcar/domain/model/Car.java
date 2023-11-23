@@ -16,12 +16,11 @@ public class Car {
     }
 
     public void tryMoveForward() {
-        if (PASSING_CRITERIA <= getRandomNumber()) {
-            currentLocation.moveForward();
+        if (PASSING_CRITERIA <= generateRandomNumber()) {
         }
     }
 
-    private int getRandomNumber() {
+    private int generateRandomNumber() {
         return Randoms.pickNumberInRange(START_OF_RANDOM_RANGE, END_OF_RANDOM_RANGE);
     }
 
