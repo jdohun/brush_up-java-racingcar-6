@@ -11,15 +11,19 @@ public class RacingCarController {
     private static final OutputView OUTPUT_VIEW = OutputView.getInstance();
 
     public void run() {
-        LineUp lineUp = setLineUp();
-        int numberOfAttempts = INPUT_HANDLER.parseInputNumberOfAttempts(INPUT_VIEW.inputNumberOfAttempts());
+        LineUp lineUp = initializeLineUp();
+        int numberOfAttempts = initializeNumberOfAttempts();
         for (int i = 0; i < numberOfAttempts; i++) {
             lineUp.tryCarsMoveForward();
-            OUTPUT_VIEW.printResult(lineUp.getCarsLocationAsFitFormat());
+            OUTPUT_VIEW.printResult(lineUp.asFitFormatCarsLocation());
         }
     }
 
-    private LineUp setLineUp() {
+    private LineUp initializeLineUp() {
         return LineUp.from(INPUT_HANDLER.inputNamesToSourceForLineUp(INPUT_VIEW.inputNames()));
+    }
+
+    private int initializeNumberOfAttempts(){
+        return INPUT_HANDLER.parseInputNumberOfAttempts(INPUT_VIEW.inputNumberOfAttempts());
     }
 }
