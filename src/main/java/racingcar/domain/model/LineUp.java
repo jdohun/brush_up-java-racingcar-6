@@ -23,4 +23,12 @@ public class LineUp {
             car.tryMoveForward();
         }
     }
+
+    public List<String> getCarsLocationAsFitFormat() {
+        List<String> carsLocation = new ArrayList<>();
+        for (Car car : cars) {
+            carsLocation.add(car.toStringAsFitFormat());
+        }
+        return carsLocation;
+    }
 }
