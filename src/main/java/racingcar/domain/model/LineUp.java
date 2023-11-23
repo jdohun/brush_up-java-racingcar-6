@@ -37,7 +37,7 @@ public class LineUp {
         }
     }
 
-    public List<String> getCarsLocationAsFitFormat() {
+    public List<String> asFitFormatCarsLocation() {
         List<String> carsLocation = new ArrayList<>();
         for (Car car : cars) {
             carsLocation.add(car.toStringAsFitFormat());
