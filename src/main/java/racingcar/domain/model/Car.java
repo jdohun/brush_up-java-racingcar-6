@@ -7,11 +7,11 @@ public class Car {
     private final int END_OF_RANDOM_RANGE = 9;
     private final int PASSING_CRITERIA = 4;
 
-    private CarName name;
-    private CarLocation currentLocation;
+    private final CarName name;
+    private final CarLocation currentLocation;
 
     public Car(String name) {
-        this.name = CarName.from(name);
+        this.name = new CarName(name);
         this.currentLocation = CarLocation.create();
     }
 
