@@ -15,12 +15,10 @@ public class Car {
         this.currentLocation = CarLocation.create();
     }
 
-    public boolean tryMoveForward() {
+    public void tryMoveForward() {
         if (PASSING_CRITERIA <= getRandomNumber()) {
             currentLocation.moveForward();
-            return true;
         }
-        return false;
     }
 
     private int getRandomNumber() {
