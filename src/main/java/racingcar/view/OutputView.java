@@ -12,6 +12,7 @@ public final class OutputView {
         for (String carLocation : carsLocation) {
             System.out.println(carLocation);
         }
+        System.out.println();
     }
 
     private static final class Holder {
