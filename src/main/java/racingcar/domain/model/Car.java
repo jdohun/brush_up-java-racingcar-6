@@ -14,7 +14,7 @@ public class Car {
         this.name = name;
     }
 
-    public boolean tryMove() {
+    public boolean tryMoveForward() {
         if (PASSING_CRITERIA <= getRandomNumber()) {
             ++currentLocation;
             return true;
