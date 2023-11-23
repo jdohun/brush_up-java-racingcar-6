@@ -17,6 +17,7 @@ public class Car {
 
     public void tryMoveForward() {
         if (PASSING_CRITERIA <= generateRandomNumber()) {
+            currentLocation.moveForward();
         }
     }
 
