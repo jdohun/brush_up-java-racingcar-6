@@ -26,6 +26,6 @@ public class Car {
     }
 
     public String toStringAsFitFormat() {
-        return String.format("%s : %s", name, currentLocation.getLocationByHyphen());
+        return String.format("%5s : %s", name.toString(), currentLocation.getLocationByHyphen());
     }
 }

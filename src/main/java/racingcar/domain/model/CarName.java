@@ -15,4 +15,9 @@ public class CarName {
             throw new IllegalArgumentException(ERROR_LENGTH);
         }
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
