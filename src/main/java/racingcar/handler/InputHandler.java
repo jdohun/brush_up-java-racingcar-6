@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class InputHandler {
     private static final Pattern FORMAT_INVALID_INPUT_NAMES = Pattern.compile("^\\s*,|,\\s*,|,\\s*$");
-    private static final Pattern FORMAT_VALID_INPUT_NUMBER_OF_ATTEMPTS = Pattern.compile("^\\d$");
+    private static final Pattern FORMAT_VALID_INPUT_NUMBER_OF_ATTEMPTS = Pattern.compile("^\\d+$");
     private static final String ERROR_INVALID_INPUT_NAMES = "자동차 이름 입력 형식에 맞지 않습니다.";
     private static final String ERROR_INVALID_INPUT_NUMBER_OF_ATTEMPTS = "시도 횟수 입력 형식에 맞지 않습니다.";
     private static final String DELIMITER_INPUT_NAMES = ",";
