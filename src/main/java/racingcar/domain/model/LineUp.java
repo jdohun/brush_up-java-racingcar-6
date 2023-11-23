@@ -17,4 +17,10 @@ public class LineUp {
         }
         return new LineUp(cars);
     }
+
+    public void tryCarsMoveForward() {
+        for (Car car : cars) {
+            car.tryMoveForward();
+        }
+    }
 }
