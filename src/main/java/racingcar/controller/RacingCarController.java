@@ -15,8 +15,9 @@ public class RacingCarController {
         int numberOfAttempts = initializeNumberOfAttempts();
         for (int i = 0; i < numberOfAttempts; i++) {
             lineUp.tryCarsMoveForward();
-            OUTPUT_VIEW.printResult(lineUp.asFitFormatCarsLocation());
+            OUTPUT_VIEW.broadcasting(lineUp.asFitFormatCarsLocation());
         }
+        OUTPUT_VIEW.prizeCeremony(lineUp.findWinners());
     }
 
     private LineUp initializeLineUp() {
