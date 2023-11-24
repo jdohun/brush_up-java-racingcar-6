@@ -28,4 +28,23 @@ public class Car {
     public String toStringAsFitFormat() {
         return String.format("%5s : %s", name.toString(), currentLocation.getLocationByHyphen());
     }
+
+    public Car compareTo(Car target) {
+        CarLocation winningLocation = this.currentLocation.compareTo(target.currentLocation);
+        if (winningLocation.equals(this.currentLocation)) {
+            return this;
+        }
+        return target;
+    }
+
+    public boolean hasSameLocation(Car target) {
+        if (null == target) {
+            return false;
+        }
+
+        if (this == target) {
+            return true;
+        }
+        return this.currentLocation.equals(this.currentLocation);
+    }
 }
