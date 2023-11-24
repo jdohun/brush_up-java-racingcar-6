@@ -44,4 +44,25 @@ public class LineUp {
         }
         return carsLocation;
     }
+
+    public List<Car> findWinners() {
+        Car winner = findWinner();
+        List<Car> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.hasSameLocation(winner)) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
+    }
+
+    private Car findWinner() {
+        Car winner = cars.get(0);
+        for (int i = 1; i < cars.size(); i++) {
+            winner = winner.compareTo(cars.get(i));
+        }
+        return winner;
+    }
 }
