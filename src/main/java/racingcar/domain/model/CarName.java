@@ -19,7 +19,7 @@ public class CarName {
     }
 
     private void validateEmpty(String name){
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             throw new IllegalArgumentException("빈 문자열은 이름이 될 수 없습니다.");
         }
     }
