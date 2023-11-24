@@ -45,7 +45,7 @@ public class Car {
         if (this == target) {
             return true;
         }
-        return this.currentLocation.equals(this.currentLocation);
+        return this.currentLocation.equals(target.currentLocation);
     }
 
     public String getName() {
