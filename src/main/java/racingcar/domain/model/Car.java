@@ -47,4 +47,8 @@ public class Car {
         }
         return this.currentLocation.equals(this.currentLocation);
     }
+
+    public String getName() {
+        return this.name.toString();
+    }
 }
