@@ -2,7 +2,7 @@ package racingcar.domain.model;
 
 import racingcar.util.StringValidater;
 
-public class CarName {
+class CarName {
     private static final int LIMIT_LENGTH = 5;
     private String name;
 
