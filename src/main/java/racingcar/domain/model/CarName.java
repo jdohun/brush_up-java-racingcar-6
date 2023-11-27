@@ -1,6 +1,6 @@
 package racingcar.domain.model;
 
-import java.util.Objects;
+import racingcar.util.StringValidater;
 
 public class CarName {
     private static final String ERROR_LENGTH = "이름은 5자 이하만 가능합니다.";
@@ -13,15 +13,9 @@ public class CarName {
     }
 
     private void validate(String name) {
-        Objects.requireNonNull(name);
-        validateEmpty(name);
+        StringValidater.validateNotNull(name);
+        StringValidater.validateNotEmpty(name);
         validateLength(name);
-    }
-
-    private void validateEmpty(String name){
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException("빈 문자열은 이름이 될 수 없습니다.");
-        }
     }
 
     private void validateLength(String name) {
