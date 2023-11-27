@@ -29,6 +29,7 @@ public class InputHandler {
     private void validateInputNames(String inputNames) {
         StringValidater.validateNotNull(inputNames);
         StringValidater.validateNotEmpty(inputNames);
+        StringValidater.validateHasNotSurroundingWhiteSpace(inputNames);
         validateInputNamesFormat(inputNames);
     }
 
