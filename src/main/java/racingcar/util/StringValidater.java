@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class StringValidater {
 
     public static final Pattern FORMAT_INVALID_STRING_EMPTY = Pattern.compile("^\\s*$");
-    public static final Pattern FORMAT_INVALID_STRING_HAS_WHITE_SPACE = Pattern.compile("^[\\s]*[\\w]*||[\\s]*[\\w]*[\\s]*||[\\w]*[\\s]*$");
+    public static final Pattern FORMAT_INVALID_STRING_HAS_SURROUNDING_WHITE_SPACE = Pattern.compile("^\\S(.*\\S)?$");
 
     private StringValidater() {
     }
@@ -24,9 +24,9 @@ public class StringValidater {
         }
     }
 
-    public static void validateHasNotWhiteSpace(String input) {
-        Matcher matcher = FORMAT_INVALID_STRING_HAS_WHITE_SPACE.matcher(input);
-        if (matcher.matches()) {
+    public static void validateHasNotSurroundingWhiteSpace(String input) {
+        Matcher matcher = FORMAT_INVALID_STRING_HAS_SURROUNDING_WHITE_SPACE.matcher(input);
+        if (!matcher.matches()) {
             throw new IllegalArgumentException("문자열의 시작과 끝에 공백을 입력할 수 없습니다.");
         }
     }
