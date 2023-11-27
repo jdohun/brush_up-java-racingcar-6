@@ -26,13 +26,13 @@ class InputHandlerTest {
                     .hasMessage("null 을 입력할 수 없습니다.");
         }
 
-        @DisplayName("빈 값을 입력하면 예외 처리한다.")
+        @DisplayName("빈 문자열을 입력하면 예외 처리한다.")
         @ParameterizedTest
         @ValueSource(strings = {"", " ", "   "})
         void validateInputAsEmpty(String empty) {
             assertThatThrownBy(() -> INPUT_HANDLER.inputNamesToSourceForLineUp(empty))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage("빈 값을 입력할 수 없습니다.");
+                    .hasMessage("빈 문자열을 입력할 수 없습니다.");
         }
 
         @DisplayName("쉼표로 시작하거나 연속되거나 끝나면 예외 처리한다.")
@@ -68,13 +68,13 @@ class InputHandlerTest {
                     .hasMessage("null 을 입력할 수 없습니다.");
         }
 
-        @DisplayName("빈 값을 입력하면 예외 처리한다.")
+        @DisplayName("빈 문자열 을 입력하면 예외 처리한다.")
         @ParameterizedTest
         @ValueSource(strings = {"", " ", "   "})
         void validateInputAsEmpty(String empty) {
             assertThatThrownBy(() -> INPUT_HANDLER.parseInputNumberOfAttempts(empty))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage("빈 값을 입력할 수 없습니다.");
+                    .hasMessage("빈 문자열을 입력할 수 없습니다.");
         }
 
         @DisplayName("숫자가 아니면 예외 처리한다.")
