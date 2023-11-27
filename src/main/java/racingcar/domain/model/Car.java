@@ -1,28 +1,22 @@
 package racingcar.domain.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import java.util.function.BooleanSupplier;
 
 public class Car {
-    private final int START_OF_RANDOM_RANGE = 0;
-    private final int END_OF_RANDOM_RANGE = 9;
-    private final int PASSING_CRITERIA = 4;
-
     private final CarName name;
     private final CarLocation currentLocation;
+    private final BooleanSupplier movingStrategy;
 
-    public Car(String name) {
+    public Car(String name, BooleanSupplier movingStrategy) {
         this.name = new CarName(name);
         this.currentLocation = CarLocation.create();
+        this.movingStrategy = movingStrategy;
     }
 
     public void tryMoveForward() {
-        if (PASSING_CRITERIA <= generateRandomNumber()) {
+        if (movingStrategy.getAsBoolean()) {
             currentLocation.moveForward();
         }
-    }
-
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(START_OF_RANDOM_RANGE, END_OF_RANDOM_RANGE);
     }
 
     public String toStringAsFitFormat() {
