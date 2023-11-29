@@ -37,7 +37,7 @@ class InputHandlerTest {
 
         @DisplayName("쉼표로 시작하거나 연속되거나 끝나면 예외 처리한다.")
         @ParameterizedTest
-        @ValueSource(strings = {", pobi", "pobi, ", "pobi,,jun", "pobi,  ,jun"})
+        @ValueSource(strings = {", pobi", "pobi,", "pobi,,jun", "pobi,  ,jun"})
         void validateInputHasCommasIssue(String commasIssue) {
             assertThatThrownBy(() -> INPUT_HANDLER.inputNamesToSourceForLineUp(commasIssue))
                     .isInstanceOf(IllegalArgumentException.class)
