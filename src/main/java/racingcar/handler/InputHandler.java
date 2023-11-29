@@ -1,6 +1,6 @@
 package racingcar.handler;
 
-import racingcar.util.StringValidater;
+import racingcar.util.StringValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +27,9 @@ public class InputHandler {
     }
 
     private void validateInputNames(String inputNames) {
-        StringValidater.validateNotNull(inputNames);
-        StringValidater.validateNotEmpty(inputNames);
-        StringValidater.validateHasNotSurroundingWhiteSpace(inputNames);
+        StringValidator.validateNotNull(inputNames);
+        StringValidator.validateNotEmpty(inputNames);
+        StringValidator.validateHasNotSurroundingWhiteSpace(inputNames);
         validateInputNamesFormat(inputNames);
     }
 
@@ -41,8 +41,8 @@ public class InputHandler {
     }
 
     public int parseInputNumberOfAttempts(String inputNumberOfAttempts) {
-        StringValidater.validateNotNull(inputNumberOfAttempts);
-        StringValidater.validateNotEmpty(inputNumberOfAttempts);
+        StringValidator.validateNotNull(inputNumberOfAttempts);
+        StringValidator.validateNotEmpty(inputNumberOfAttempts);
         validateInputNumberOfAttempts(inputNumberOfAttempts);
         return Integer.parseInt(inputNumberOfAttempts);
     }
