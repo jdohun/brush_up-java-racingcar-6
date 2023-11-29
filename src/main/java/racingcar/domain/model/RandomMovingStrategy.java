@@ -27,16 +27,12 @@ public class RandomMovingStrategy implements BooleanSupplier {
         return new RandomMovingStrategy(randomNumberGenerator);
     }
 
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(START_OF_RANDOM_RANGE, END_OF_RANDOM_RANGE);
-    }
-
     @Override
     public boolean getAsBoolean() {
         int randomNumber = randomNumberGenerator.getAsInt();
         validate(randomNumber);
 
-        return PASSING_CRITERIA <= generateRandomNumber();
+        return PASSING_CRITERIA <= randomNumber;
     }
 
     private void validate(int generatedNumber) {
@@ -44,7 +40,7 @@ public class RandomMovingStrategy implements BooleanSupplier {
     }
 
     private void validateNumberInRange(int generatedNumber) {
-        if (START_OF_RANDOM_RANGE > generatedNumber && END_OF_RANDOM_RANGE < generatedNumber) {
+        if (START_OF_RANDOM_RANGE > generatedNumber || END_OF_RANDOM_RANGE < generatedNumber) {
             throw new IllegalArgumentException("범위를 벗어나는 값을 생성합니다. 생성 값: " + generatedNumber);
         }
     }
