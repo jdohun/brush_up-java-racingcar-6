@@ -10,6 +10,7 @@
     - 생성 전 파라미터 검증
       - [x] 전달 받은 이름이 `null` 이면 예외 처리한다.
       - [x] 전달 받은 이름이 `빈 문자열`이면 `IllegalArgumentException` 예외 처리한다.
+      - [x] 전달 받은 이름의 시작 또는 끝이 공백이면 `IllegalArgumentException` 예외 처리한다.
       - [x] 전달 받은 이름의 길이가 5 를 초과하면 `IllegalArgumentException` 예외 처리한다.
     - [x] 저장한 이름을 문자열로 반환한다.
 
@@ -34,20 +35,22 @@
   - 메소드
     - [x] 기본 랜덤 생성기를 통해 생성한다.
     - [x] 주입된 랜덤 생성기를 통해 생성한다.
-    - [x] 통과 기준을 충족하는지 반환한다.
+    - [x] 통과 기준을 충족하는지 결과를 반환한다.
       - [x] 생성된 값이 범위를 벗어나면 `IllegalArgumentException` 예외 처리한다.
 
 - ### Car
   - 멤버
     - `CarName name`
     - `CarLocation currentLocation` : 현재 위치 (생성 시 0으로 초기화)
+    - `BooleanSupplier movingStrategy` : 전진 전략
 
   - 메소드
     - 전진 시도
-      - [x] 0에서 9까지의 정수 중 한 개의 정수를 반환한다.
-      - [x] 반환된 값이 4 이상일 경우 `+1` 전진한다.
+      - [x] 전진 전략의 통과 기준 충족 여부에 따라 전진한다.
     - [x] 현재 위치를 `-`의 개수로 표현하며 이름과 같이 반환한다.
       - (e.g. `pobi : -` )
+    - [x] 비교하여 더 많이 전진한 객체를 반환한다.
+    - [x] 비교하여 같은 기록을 가졌는지 비교 결과를 반환한다.
 
 - ### LineUp
   - 멤버
@@ -66,6 +69,12 @@
 
 ---
 ## 어플리케이션 서비스
+### 공용 (util)
+- ### StringValidator
+  - [x] null 이면 `IllegalArgumentException` 예외 처리한다.
+  - [x] 빈 문자열 이면 `IllegalArgumentException` 예외 처리한다.
+  - [x] 문자열의 시작 또는 끝이 공백이면 `IllegalArgumentException` 예외 처리한다.
+
 ### 비즈니스 (Handler)
 - ### InputHandler
   - ### InputNames
