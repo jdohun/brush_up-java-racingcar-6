@@ -20,7 +20,7 @@ public class Car {
         }
     }
 
-    public String toStringAsFitFormat() {
+    public String toStringAsFormattedCondition() {
         return String.format("%5s : %s", name.toString(), currentLocation.getLocationByHyphen());
     }
 
