@@ -7,7 +7,7 @@ import java.util.Objects;
 public class LineUp {
     private final List<Car> cars;
 
-    private LineUp(List<Car> cars) {
+    public LineUp(List<Car> cars) {
         validate(cars);
         this.cars = cars;
     }
@@ -37,10 +37,10 @@ public class LineUp {
         }
     }
 
-    public List<String> asFitFormatCarsLocation() {
+    public List<String> toStringListAsFormattedCarsCondition() {
         List<String> carsLocation = new ArrayList<>();
         for (Car car : cars) {
-            carsLocation.add(car.toStringAsFitFormat());
+            carsLocation.add(car.toStringAsFormattedCondition());
         }
         return carsLocation;
     }

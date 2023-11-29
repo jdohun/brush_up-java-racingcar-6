@@ -21,7 +21,7 @@ class CarTest {
 
         // Act
         sample.tryMoveForward();
-        String result = sample.toStringAsFitFormat();
+        String result = sample.toStringAsFormattedCondition();
 
         // Assert
         assertThat(result)
