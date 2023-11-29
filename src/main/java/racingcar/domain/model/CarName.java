@@ -1,6 +1,6 @@
 package racingcar.domain.model;
 
-import racingcar.util.StringValidater;
+import racingcar.util.StringValidator;
 
 class CarName {
     private static final int LIMIT_LENGTH = 5;
@@ -12,9 +12,9 @@ class CarName {
     }
 
     private void validate(String name) {
-        StringValidater.validateNotNull(name);
-        StringValidater.validateNotEmpty(name);
-        StringValidater.validateHasNotSurroundingWhiteSpace(name);
+        StringValidator.validateNotNull(name);
+        StringValidator.validateNotEmpty(name);
+        StringValidator.validateHasNotSurroundingWhiteSpace(name);
         validateLength(name);
     }
 

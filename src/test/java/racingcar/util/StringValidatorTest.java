@@ -8,12 +8,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class StringValidaterTest {
+class StringValidatorTest {
 
     @DisplayName("null 을 입력 받으면 예외처리가 발생한다.")
     @Test
     void validateNotNull() {
-        assertThatThrownBy(() -> StringValidater.validateNotNull(null))
+        assertThatThrownBy(() -> StringValidator.validateNotNull(null))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("null 을 입력할 수 없습니다.");
 
@@ -23,7 +23,7 @@ class StringValidaterTest {
     @ParameterizedTest
     @ValueSource(strings = {"", " ", "   "})
     void validateNotEmpty(String empty) {
-        assertThatThrownBy(() -> StringValidater.validateNotEmpty(empty))
+        assertThatThrownBy(() -> StringValidator.validateNotEmpty(empty))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("빈 문자열을 입력할 수 없습니다.");
     }
@@ -32,7 +32,7 @@ class StringValidaterTest {
     @ParameterizedTest
     @ValueSource(strings = {" test", "  test", " test ", "  test  ", "test ", "test  " })
     void validateHasNotSurroundingWhiteSpace(String surroundingWhiteSpace) {
-        assertThatThrownBy(() -> StringValidater.validateHasNotSurroundingWhiteSpace(surroundingWhiteSpace))
+        assertThatThrownBy(() -> StringValidator.validateHasNotSurroundingWhiteSpace(surroundingWhiteSpace))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("문자열의 시작과 끝에 공백을 입력할 수 없습니다.");
     }
@@ -40,7 +40,7 @@ class StringValidaterTest {
     @DisplayName("문자열 사이의 공백은 예외처리가 발생하지 않는다.")
     @Test
     void validateHasWhiteSpace() {
-        assertThatCode(() -> StringValidater.validateHasNotSurroundingWhiteSpace("te st"))
+        assertThatCode(() -> StringValidator.validateHasNotSurroundingWhiteSpace("te st"))
                 .doesNotThrowAnyException();
     }
 }

@@ -3,12 +3,12 @@ package racingcar.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringValidater {
+public class StringValidator {
 
     public static final Pattern FORMAT_INVALID_STRING_EMPTY = Pattern.compile("^\\s*$");
     public static final Pattern FORMAT_INVALID_STRING_HAS_SURROUNDING_WHITE_SPACE = Pattern.compile("^\\S(.*\\S)?$");
 
-    private StringValidater() {
+    private StringValidator() {
     }
 
     public static void validateNotNull(String input) {
