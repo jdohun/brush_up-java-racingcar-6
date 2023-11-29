@@ -1,5 +1,6 @@
 package racingcar.domain.model;
 
+import java.util.Objects;
 import java.util.function.BooleanSupplier;
 
 public class Car {
@@ -24,6 +25,8 @@ public class Car {
     }
 
     public Car compareTo(Car target) {
+        Objects.requireNonNull(target);
+
         CarLocation winningLocation = this.currentLocation.compareTo(target.currentLocation);
         if (winningLocation.equals(this.currentLocation)) {
             return this;
