@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.model.LineUp;
 import racingcar.handler.InputHandler;
 import racingcar.view.InputView;
@@ -11,13 +12,17 @@ public class RacingCarController {
     private static final OutputView OUTPUT_VIEW = OutputView.getInstance();
 
     public void run() {
-        LineUp lineUp = initializeLineUp();
-        int numberOfAttempts = initializeNumberOfAttempts();
-        for (int i = 0; i < numberOfAttempts; i++) {
-            lineUp.tryCarsMoveForward();
-            OUTPUT_VIEW.broadcasting(lineUp.toStringListAsFormattedCarsCondition());
+        try {
+            LineUp lineUp = initializeLineUp();
+            int numberOfAttempts = initializeNumberOfAttempts();
+            for (int i = 0; i < numberOfAttempts; i++) {
+                lineUp.tryCarsMoveForward();
+                OUTPUT_VIEW.broadcasting(lineUp.toStringListAsFormattedCarsCondition());
+            }
+            OUTPUT_VIEW.prizeCeremony(lineUp.findWinners());
+        } finally {
+            Console.close();
         }
-        OUTPUT_VIEW.prizeCeremony(lineUp.findWinners());
     }
 
     private LineUp initializeLineUp() {
